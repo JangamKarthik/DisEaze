@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "168108887553",
+    "project_id": "at-lab-54815",
+    "storage_bucket": "at-lab-54815.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168108887553:android:4561c9c89366c330097a00",
+        "android_client_info": {
+          "package_name": "com.example.diseaze"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4DXGXxJSTLr2zhPJbulVVstdbkiloPOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

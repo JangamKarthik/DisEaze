@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="384dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="8dp"
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/etNumber"
+        android:layout_width="387dp"
+        android:layout_height="56dp"
+        android:layout_below="@id/etName"
+        android:layout_marginBottom="8dp"
+        android:hint="Phone Number"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="390dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/etNumber"
+        android:layout_marginBottom="8dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/tvChooseGender"
+        android:layout_width="383dp"
+        android:layout_height="53dp"
+        android:layout_below="@id/etEmail"
+        android:layout_marginTop="6dp"
+        android:text="Choose Gender" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvChooseGender"
+        android:layout_marginBottom="8dp">
+
+        <RadioButton
+            android:id="@+id/radioMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/radioFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+
+        <!-- Add more options as needed -->
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="383dp"
+        android:layout_height="57dp"
+        android:layout_below="@id/radioGroupGender"
+        android:layout_marginBottom="16dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="381dp"
+        android:layout_height="58dp"
+        android:layout_below="@id/etPassword"
+        android:layout_marginTop="16dp"
+        android:onClick="onRegisterClick"
+        android:text="Register" />
+
+    <Button
+        android:id="@+id/btnLoginInstead"
+        android:layout_width="376dp"
+        android:layout_height="62dp"
+        android:layout_below="@id/btnRegister"
+        android:layout_marginTop="16dp"
+        android:onClick="onLoginInsteadClick"
+        android:text="Already have an account? Login instead." />
+</RelativeLayout>
