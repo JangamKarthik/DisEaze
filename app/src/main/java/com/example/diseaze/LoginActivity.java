@@ -23,6 +23,9 @@ public class LoginActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String loggedUserId;
     private String loggedUserName;
+    private String loggedUserEmail;
+    private String loggedUserPhone;
+    private String loggedUserGender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,9 @@ public class LoginActivity extends AppCompatActivity {
                         userFound = true;
                         loggedUserId = user.getUserId();
                         loggedUserName = user.getName();
+                        loggedUserEmail = user.getEmail();
+                        loggedUserPhone = user.getNumber();
+                        loggedUserGender = user.getGender();
                         break;
                     }
                 }
@@ -81,7 +87,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public void toHome() {
         Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra("keyUserID", loggedUserId);
         intent.putExtra("keyString", loggedUserName);
+        intent.putExtra("keyUserEmail",loggedUserEmail);
+        intent.putExtra("keyUserGender",loggedUserGender);
+        intent.putExtra("keyUserPhone",loggedUserPhone);
         startActivity(intent);
         finish();
     }

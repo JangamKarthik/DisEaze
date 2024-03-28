@@ -127,7 +127,7 @@ public class RegisterActivity extends AppCompatActivity {
                         // Registration successful, show a success message
                         showToast("Registration successful");
 
-                        //TODO: Navigate to another activity or perform further actions here
+                        navigateToHomeActivity(userId, name,email, gender, number);
                     } else {
                         // Registration failed, show an error message
                         showToast("Registration failed: " + task.getException().getMessage());
@@ -142,6 +142,18 @@ public class RegisterActivity extends AppCompatActivity {
     }
     public void onLoginInsteadClick() {
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void navigateToHomeActivity(String userId, String userName, String userMail, String userGender, String userPhone) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        // Pass user information to the next activity
+        intent.putExtra("keyUserID", userId);
+        intent.putExtra("keyString", userName);
+        intent.putExtra("keyUserEmail",userMail);
+        intent.putExtra("keyUserGender",userGender);
+        intent.putExtra("keyUserPhone",userPhone);
         startActivity(intent);
         finish();
     }

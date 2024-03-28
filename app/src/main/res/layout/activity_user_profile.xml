@@ -2,9 +2,79 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".UserProfileActivity">
 
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="179dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_border"
+        android:text="USER PROFILE"
+        android:paddingStart="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserId"
+        android:layout_width="353dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="99dp"
+        android:background="@drawable/edittext_border"
+        android:paddingStart="10dp"
+        android:text="User ID: "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserGender"
+        android:layout_width="347dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/edittext_border"
+        android:paddingStart="10dp"
+        android:text="Gender: "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="@+id/tvUserId"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserId" />
+
+    <TextView
+        android:id="@+id/tvUserMail"
+        android:layout_width="347dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/edittext_border"
+        android:paddingStart="10dp"
+        android:text="Email: "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="@+id/tvUserGender"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserGender" />
+
+    <TextView
+        android:id="@+id/tvUserPhone"
+        android:layout_width="342dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/edittext_border"
+        android:paddingStart="10dp"
+        android:text="Phone: "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="@+id/tvUserMail"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserMail" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feedback"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="396dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

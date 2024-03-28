@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:padding="16dp">
 
     <EditText
@@ -10,6 +11,10 @@
         android:layout_height="58dp"
         android:layout_marginBottom="8dp"
         android:hint="Name"
+        android:textColorHint="#000000"
+        android:textColor="#000000"
+        android:background="@drawable/edittext_border"
+        android:paddingStart="10dp"
         android:inputType="textPersonName" />
 
     <EditText
@@ -19,6 +24,10 @@
         android:layout_below="@id/etName"
         android:layout_marginBottom="8dp"
         android:hint="Phone Number"
+        android:textColorHint="#000000"
+        android:textColor="#000000"
+        android:paddingStart="10dp"
+        android:background="@drawable/edittext_border"
         android:inputType="phone" />
 
     <EditText
@@ -28,6 +37,10 @@
         android:layout_below="@id/etNumber"
         android:layout_marginBottom="8dp"
         android:hint="Email"
+        android:textColorHint="#000000"
+        android:textColor="#000000"
+        android:background="@drawable/edittext_border"
+        android:paddingStart="10dp"
         android:inputType="textEmailAddress" />
 
     <TextView
@@ -36,6 +49,9 @@
         android:layout_height="53dp"
         android:layout_below="@id/etEmail"
         android:layout_marginTop="6dp"
+        android:textColor="#000000"
+        android:paddingStart="10dp"
+        android:textSize="22dp"
         android:text="Choose Gender" />
 
     <RadioGroup
@@ -48,15 +64,19 @@
 
         <RadioButton
             android:id="@+id/radioMale"
-            android:layout_width="wrap_content"
+            android:layout_width="93dp"
             android:layout_height="wrap_content"
-            android:text="Male" />
+            android:text="Male"
+            android:textColor="#000000"
+            android:textSize="20dp" />
 
         <RadioButton
             android:id="@+id/radioFemale"
-            android:layout_width="wrap_content"
+            android:layout_width="102dp"
             android:layout_height="wrap_content"
-            android:text="Female" />
+            android:text="Female"
+            android:textSize="20dp"
+            android:textColor="#000000" />
 
         <!-- Add more options as needed -->
     </RadioGroup>
@@ -68,6 +88,10 @@
         android:layout_below="@id/radioGroupGender"
         android:layout_marginBottom="16dp"
         android:hint="Password"
+        android:textColorHint="#000000"
+        android:textColor="#000000"
+        android:paddingStart="10dp"
+        android:background="@drawable/edittext_border"
         android:inputType="textPassword" />
 
     <Button
@@ -77,6 +101,8 @@
         android:layout_below="@id/etPassword"
         android:layout_marginTop="16dp"
         android:onClick="onRegisterClick"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button"
         android:text="Register" />
 
     <Button
@@ -86,5 +112,7 @@
         android:layout_below="@id/btnRegister"
         android:layout_marginTop="16dp"
         android:onClick="onLoginInsteadClick"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button"
         android:text="Already have an account? Login instead." />
 </RelativeLayout>

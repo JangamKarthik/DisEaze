@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@drawable/bg2"
+    >
 
-    <TextView
-        android:id="@+id/textViewDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome to DisEaze App! Describe your app here."
-        android:textSize="18sp"
-        android:textAlignment="center"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="16dp" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <Button
         android:id="@+id/btnGetStarted"
-        android:layout_width="match_parent"
+        android:layout_width="224dp"
         android:layout_height="wrap_content"
-        android:text="Get Started"
-        android:layout_below="@id/textViewDescription"
-        android:layout_marginTop="16dp"
-        android:onClick="onGetStartedClick"/>
+        android:layout_below="@id/viewPager"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:onClick="onGetStartedClick"
+        android:text="Get Started" />
+
+
+
 </RelativeLayout>
