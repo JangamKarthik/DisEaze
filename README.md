@@ -40,7 +40,7 @@ To get started with DisEaze, follow these steps:
 
 8. **API deployment on Amazon's EC2 Instance**: The detailed steps for the instance deployment and the required API is in the following repo
 
-  ```bash
-  https://github.com/JangamKarthik/APIS
-  ```
-follow the steps in the repo's readme.md and deploy-flask-on-aws-ec2.md
+    ```bash
+    https://github.com/JangamKarthik/APIS
+    ```
+    Follow the steps in the repo's readme.md and deploy-flask-on-aws-ec2.md
