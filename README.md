@@ -38,7 +38,7 @@ To get started with DisEaze, follow these steps:
 
 7. **Provide Feedback**: Use the feedback feature to share your thoughts or report any issues encountered while using the app.
 
-8.**API deployment on Amazon's EC2 Instance**:The detailed steps for the instance deployment and the required API is in the following repo
+8. **API deployment on Amazon's EC2 Instance**: The detailed steps for the instance deployment and the required API is in the following repo
 
   ```bash
   https://github.com/JangamKarthik/APIS
