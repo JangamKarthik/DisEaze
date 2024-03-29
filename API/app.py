@@ -18,7 +18,6 @@ def main():
 
             image_content = image_file.read()
 
-
             img = image.load_img(io.BytesIO(image_content), target_size=target_size)
             img_array = image.img_to_array(img)
             img_array = np.expand_dims(img_array, axis=0)

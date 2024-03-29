@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,18 +17,18 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.UUID;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class HomeActivity extends AppCompatActivity {
     private TextView tv1;
@@ -92,59 +93,66 @@ public class HomeActivity extends AppCompatActivity {
 
     private void uploadImage() {
         if (selectedImageBitmap != null) {
-            // Convert the selected bitmap to a byte array
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            selectedImageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-            byte[] imageData = baos.toByteArray();
-
             // Your API endpoint
-            String apiUrl = "http://127.0.0.1:5000/";
+            String apiUrl = "http://3.111.245.216/";
 
-            callApiForClassification(apiUrl, imageData);
+            callApiForClassification(apiUrl, selectedImageBitmap);
         } else {
             showToast("No image selected");
         }
     }
 
-    private void callApiForClassification(String apiUrl, byte[] imageData) {
-        JSONObject jsonBody = new JSONObject();
-        try {
-            // Put your image data in the JSON body
-            // Here, assuming your API accepts 'image' as the key for image data
-            jsonBody.put("image", imageData);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return;
-        }
+    private void callApiForClassification(String apiUrl, Bitmap imageBitmap) {
+        new Thread(() -> {
+            try {
+                OkHttpClient client = new OkHttpClient();
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.POST, apiUrl, jsonBody, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            // Extract class name and confidence level from API response
-                            String className = response.getString("class");
-                            double confidence = response.getDouble("confidence");
-                            String clevel = String.valueOf(confidence);
-                            // Start ResultActivity and pass class name and confidence level
-                            Intent intent = new Intent(HomeActivity.this, ResultActivity.class);
-                            intent.putExtra("CLASS_NAME", className);
-                            intent.putExtra("CONFIDENCE", clevel);
-                            startActivity(intent);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            showToast("Error parsing API response");
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        showToast("Error calling API");
-                    }
-                });
+                // Creating MultipartBody for sending form data
+                RequestBody requestBody = new MultipartBody.Builder()
+                        .setType(MultipartBody.FORM)
+                        .addFormDataPart("image", "image.jpg", createPartFromFile(imageBitmap))
+                        .build();
 
-        // Add the request to the RequestQueue
-        Volley.newRequestQueue(this).add(jsonObjectRequest);
+                // Creating request
+                Request request = new Request.Builder()
+                        .url(apiUrl)
+                        .post(requestBody)
+                        .build();
+
+                // Executing request and handling response
+                Response response = client.newCall(request).execute();
+                if (response.isSuccessful()) {
+                    // Handle response if call was successfull
+                    String responseData = response.body().string();
+                    Log.d("API_RESPONSE", responseData);
+                    JSONObject jsonResponse = new JSONObject(responseData);
+                    String className = jsonResponse.getString("class");
+                    double confidence = jsonResponse.getDouble("confidence");
+
+                    // Starting ResultActivity and passing class name and confidence level
+                    Intent intent = new Intent(HomeActivity.this, ResultActivity.class);
+                    intent.putExtra("CLASS_NAME", className);
+                    intent.putExtra("CONFIDENCE", String.valueOf(confidence));
+                    startActivity(intent);
+                } else {
+                    // Handling error response
+                    showToast("Error response from server: " + response.code());
+                }
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+                runOnUiThread(() -> showToastOnUiThread("Error calling API"));
+            }
+        }).start();
+    }
+
+    private RequestBody createPartFromFile(Bitmap imageBitmap) {
+        // Converting Bitmap to byte array
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageData = baos.toByteArray();
+
+        // Creating RequestBody from byte array
+        return RequestBody.create(MediaType.parse("image/jpeg"), imageData);
     }
 
     private void navigateToUserProfileActivity() {
@@ -156,6 +164,11 @@ public class HomeActivity extends AppCompatActivity {
         intent.putExtra("USER_GENDER", userGender);
         startActivity(intent);
     }
+
+    private void showToastOnUiThread(String message) {
+        runOnUiThread(() -> showToast(message));
+    }
+
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
