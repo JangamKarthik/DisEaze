@@ -94,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
     private void uploadImage() {
         if (selectedImageBitmap != null) {
             // Your API endpoint
-            String apiUrl = "http://3.111.245.216/";
+            String apiUrl = "http://3.110.196.103/";
 
             callApiForClassification(apiUrl, selectedImageBitmap);
         } else {
@@ -127,12 +127,14 @@ public class HomeActivity extends AppCompatActivity {
                     Log.d("API_RESPONSE", responseData);
                     JSONObject jsonResponse = new JSONObject(responseData);
                     String className = jsonResponse.getString("class");
-                    double confidence = jsonResponse.getDouble("confidence");
+                    double confidence = jsonResponse.getDouble("Probability");
+                    double truncatedConfidence = Math.round(confidence * 100.0) / 100.0;
+
 
                     // Starting ResultActivity and passing class name and confidence level
                     Intent intent = new Intent(HomeActivity.this, ResultActivity.class);
                     intent.putExtra("CLASS_NAME", className);
-                    intent.putExtra("CONFIDENCE", String.valueOf(confidence));
+                    intent.putExtra("CONFIDENCE", String.valueOf(truncatedConfidence));
                     startActivity(intent);
                 } else {
                     // Handling error response
