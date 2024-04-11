@@ -5,11 +5,12 @@ DisEaze is a mobile application designed to assist users in identifying various 
 ## Features
 
 - **Image Selection**: Users can select images from their device gallery to upload for analysis.
-- **Image Classification**: The uploaded images are sent to a server for classification using pre-trained deep learning models.
+- **Image Classification**: The uploaded images are sent to a server for classification using pre-trained deep-learning models.
 - **Result Display**: The app displays the classification result, including the predicted skin condition and confidence level.
 - **User Authentication**: Secure user authentication ensures data privacy and personalized user experiences.
 - **User Profile Management**: Users can manage their profiles, including personal information and preferences.
 - **Feedback System**: Users can provide feedback on the app's performance or report issues.
+- **Chat Bot**: In case of any queries, users can reach out to the in-built chatbot in our app to resolve their queries.
 
 ## Dependencies
 
