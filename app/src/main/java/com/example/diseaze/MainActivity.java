@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewPager);
         btn = findViewById(R.id.btnGetStarted);
+        btn.setBackgroundColor(getResources().getColor(R.color.teal));
+        btn.setTextColor(getResources().getColor(android.R.color.white));
         adapter = new CardPagerAdapter(this, cardLayouts);
         viewPager.setAdapter(adapter);
 

@@ -2,12 +2,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg2"
+    android:background="#dcdddf"
     android:id="@+id/main"
-    android:padding="32dp"
-    >
+    android:padding="32dp">
+
+    <!-- Result TextView -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESULT"
+        android:textColor="@color/black"
+        android:textSize="40sp"/>
+
 
     <!-- Confidence Level TextView -->
+
+    <ImageButton
+        android:id="@+id/btnChatbot"
+        android:layout_width="69dp"
+        android:layout_height="90dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="609dp"
+        android:background="@color/teal"
+        android:src="@drawable/chat_icon" />
+
     <TextView
         android:id="@+id/textViewConfidenceLevel"
         android:layout_width="wrap_content"
@@ -15,8 +36,9 @@
         android:text="Confidence Level:"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="70dp"/>
+        android:textColor="@color/black"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="24dp"/>
 
     <!-- Display the confidence level here -->
     <TextView
@@ -38,7 +60,7 @@
         android:text="Disease:"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#d0d0d0"
+        android:textColor="@color/black"
         android:layout_below="@id/textViewConfidenceValue"
         android:layout_marginTop="24dp"/>
 
@@ -49,9 +71,39 @@
         android:layout_height="wrap_content"
         android:text="Eczema"
         android:textSize="28sp"
-        android:textColor="@color/white"
+        android:textColor="#008080"
         android:layout_below="@id/textViewDiseaseName"
         android:layout_marginTop="6dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_below="@id/textViewDiseaseValue"
+        android:layout_marginTop="24dp" />
+
+    <!-- ScrollView for description -->
+    <ScrollView
+        android:id="@+id/scrollViewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView2"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@color/grey"/>
+
+    </ScrollView>
 
     <!-- Medication Recommended TextView -->
     <TextView
@@ -61,48 +113,27 @@
         android:text="Medication Recommended:"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#d0d0d0"
-        android:layout_below="@id/textView3"
+        android:textColor="@color/black"
+        android:layout_below="@id/scrollViewDescription"
         android:layout_marginTop="24dp"/>
 
-    <!-- Display the recommended medication here -->
-    <TextView
-        android:id="@+id/textViewMedicationValue"
-        android:layout_width="wrap_content"
+    <!-- ScrollView for medication recommendation -->
+    <ScrollView
+        android:id="@+id/scrollViewMedication"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Corticosteroid Cream"
-        android:textSize="28sp"
-        android:textColor="@color/white"
         android:layout_below="@id/textViewMedicationRecommended"
-        android:layout_marginTop="6dp"/>
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="16dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RESULT"
-        android:textColor="@color/white"
-        android:textSize="40sp"/>
+        <TextView
+            android:id="@+id/textViewMedicationValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@color/grey"/>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Description:"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#d0d0d0"
-        android:layout_below="@id/textViewDiseaseValue"
-        android:layout_marginTop="24dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eczema is a skin condition causing red, itchy patches. It's chronic and can flare up. Genetics, immune system issues, and irritants contribute. Treatment involves skincare, trigger avoidance, and medications."
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:layout_below="@id/textView2"
-        android:layout_marginTop="6dp"/>
+    </ScrollView>
 
 </RelativeLayout>

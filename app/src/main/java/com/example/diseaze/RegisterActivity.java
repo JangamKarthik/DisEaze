@@ -1,5 +1,6 @@
 package com.example.diseaze;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -48,7 +49,10 @@ public class RegisterActivity extends AppCompatActivity {
         radioGroupGender = findViewById(R.id.radioGroupGender);
         btnRegister = findViewById(R.id.btnRegister);
         btnlogin = findViewById(R.id.btnLoginInstead);
-
+        btnRegister.setBackgroundColor(Color.parseColor("#008080"));
+        btnlogin.setBackgroundColor(Color.parseColor("#008080"));
+        btnRegister.setTextColor(Color.parseColor("#FFFFFF"));
+        btnlogin.setTextColor(Color.parseColor("#FFFFFF"));
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

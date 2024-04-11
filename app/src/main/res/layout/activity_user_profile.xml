@@ -4,77 +4,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="#dcdddf"
     tools:context=".UserProfileActivity">
 
     <TextView
         android:id="@+id/tvUserName"
-        android:layout_width="179dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="352dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="17dp"
         android:background="@drawable/edittext_border"
-        android:text="USER PROFILE"
         android:paddingStart="10dp"
+        android:text="USER PROFILE"
         android:textColor="@android:color/black"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvUserId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvUserId"
-        android:layout_width="353dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="99dp"
+        android:layout_width="345dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/edittext_border"
         android:paddingStart="10dp"
         android:text="User ID: "
         android:textColor="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/tvUserGender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
     <TextView
         android:id="@+id/tvUserGender"
         android:layout_width="347dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="13dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="9dp"
         android:background="@drawable/edittext_border"
         android:paddingStart="10dp"
         android:text="Gender: "
         android:textColor="@android:color/black"
-        app:layout_constraintStart_toStartOf="@+id/tvUserId"
+        app:layout_constraintBottom_toTopOf="@+id/tvUserMail"
+        app:layout_constraintEnd_toEndOf="@+id/tvUserMail"
+        app:layout_constraintStart_toStartOf="@+id/tvUserMail"
         app:layout_constraintTop_toBottomOf="@+id/tvUserId" />
 
     <TextView
         android:id="@+id/tvUserMail"
-        android:layout_width="347dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="344dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/edittext_border"
         android:paddingStart="10dp"
         android:text="Email: "
         android:textColor="@android:color/black"
-        app:layout_constraintStart_toStartOf="@+id/tvUserGender"
+        app:layout_constraintBottom_toTopOf="@+id/tvUserPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvUserGender" />
 
     <TextView
         android:id="@+id/tvUserPhone"
-        android:layout_width="342dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="11dp"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="11dp"
         android:background="@drawable/edittext_border"
         android:paddingStart="10dp"
         android:text="Phone: "
         android:textColor="@android:color/black"
-        app:layout_constraintStart_toStartOf="@+id/tvUserMail"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="@+id/tvUserMail"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/recycler_view"
         app:layout_constraintTop_toBottomOf="@+id/tvUserMail" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="53dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Feedback"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="396dp" />
+        android:layout_marginBottom="16dp"
+        android:text="Give us your feedback"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="15dp"
+        android:text="Previous Scan Results"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+        app:layout_constraintEnd_toEndOf="@+id/tvUserPhone"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserPhone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

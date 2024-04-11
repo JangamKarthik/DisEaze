@@ -3,6 +3,7 @@ package com.example.diseaze;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -26,15 +27,17 @@ public class LoginActivity extends AppCompatActivity {
     private String loggedUserEmail;
     private String loggedUserPhone;
     private String loggedUserGender;
+    private Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
-
+        btn = findViewById(R.id.btnLogin);
+        btn.setBackgroundColor(getResources().getColor(R.color.teal));
+        btn.setTextColor(getResources().getColor(android.R.color.white));
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
     }

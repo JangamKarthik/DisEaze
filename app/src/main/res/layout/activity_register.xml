@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/teal_bg"
     android:padding="16dp">
 
     <EditText
@@ -101,8 +101,6 @@
         android:layout_below="@id/etPassword"
         android:layout_marginTop="16dp"
         android:onClick="onRegisterClick"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/rounded_button"
         android:text="Register" />
 
     <Button
@@ -112,7 +110,5 @@
         android:layout_below="@id/btnRegister"
         android:layout_marginTop="16dp"
         android:onClick="onLoginInsteadClick"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/rounded_button"
         android:text="Already have an account? Login instead." />
 </RelativeLayout>

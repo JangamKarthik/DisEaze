@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg2"
+    android:background="@drawable/diseazefp"
     >
 
 
@@ -19,11 +19,10 @@
         android:layout_width="224dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/viewPager"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
+
         android:onClick="onGetStartedClick"
         android:text="Get Started" />
-
 
 
 </RelativeLayout>
